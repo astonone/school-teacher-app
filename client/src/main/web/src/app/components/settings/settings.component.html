@@ -1,0 +1,61 @@
+<div class="setting">
+    <div class="setting__about">
+        <h3 class="user__about_label">Тут вы можете отредактировать фото для портфолио</h3>
+        <div class="about-container">
+            <div class="about-avatar">
+                <mat-card class="user-card">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>Мой профиль</mat-card-title>
+                        <mat-card-subtitle>Фото для портфолио</mat-card-subtitle>
+                    </mat-card-header>
+                    <div *ngIf="currentUser.photoFile !== null">
+                        <img mat-card-image [src]="currentUserImageSrc | safeHtml" alt="user-photo">
+                    </div>
+                    <img *ngIf="currentUser.photoFile === null" mat-card-image class="user-image"
+                         src="./assets/image/empty-profile-black.png" alt="user-photo">
+                    <mat-card-content class="user-info">
+                        <label class="btn btn-default">
+                            <input type="file" name="file" (change)="selectFile($event)"/>
+                        </label>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+    <div class="setting__user">
+        <h3 class="user__settings_label">Тут вы можете отредактировать данные вашего аккаунта</h3>
+        <div>
+            <mat-form-field class="setting-main-text-input" appearance="outline">
+                <mat-label>Имя</mat-label>
+                <input matInput type="search" placeholder="Введите имя" [(ngModel)]="currentUser.firstName">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="setting-main-text-input" appearance="outline">
+                <mat-label>Фамилия</mat-label>
+                <input matInput type="search" placeholder="Введите фамилию" [(ngModel)]="currentUser.lastName">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="setting-main-text-input" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" placeholder="Введите новый email адресс"
+                       [(ngModel)]="currentUser.username">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="setting-main-text-input" appearance="outline">
+                <mat-label>Новый Пароль</mat-label>
+                <input matInput type="password" placeholder="Введите новый пароль" [(ngModel)]="currentUser.password">
+            </mat-form-field>
+        </div>
+        <div class="user-control-buttons">
+            <button mat-raised-button color="primary" (click)="updateUser()">Сохранить</button>
+            <button class="delete-user-button" mat-raised-button color="warn" (click)="deleteUser()">Удалить аккаунт
+            </button>
+        </div>
+    </div>
+</div>
+
+

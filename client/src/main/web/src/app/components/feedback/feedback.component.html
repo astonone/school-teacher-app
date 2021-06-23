@@ -1,0 +1,38 @@
+<div *ngIf="userService.isUserLogged()" class="news-container">
+    <mat-list>
+        <h3 mat-subheader>Сообщения</h3>
+        <mat-list-item *ngFor="let feedback of feedbacks" class="news-item">
+            <mat-icon *ngIf="!shared.isMobile()" mat-list-icon>comment</mat-icon>
+            <mat-icon *ngIf="userService.isUserLogged()" mat-list-icon class="remove-item"
+                      (click)="deleteFeedback(feedback.id)">delete_sweep
+            </mat-icon>
+            <h4 mat-line class="news-title">{{feedback.userName}}</h4>
+            <h6 mat-line class="news-text">{{feedback.text}}</h6>
+            <p mat-line class="news-info">{{feedback.contactData}}</p>
+        </mat-list-item>
+    </mat-list>
+    <p class="news-button" *ngIf="isEmptyFeedbackList()">Сообщений пока нет</p>
+</div>
+<div *ngIf="!userService.isUserLogged()" class="news-container">
+    <div class="example-container">
+        <h3 mat-subheader>Заполните форму</h3>
+        <mat-form-field appearance="fill" class="form-element">
+            <mat-label>Ваше имя</mat-label>
+            <input matInput [(ngModel)]="feedback.userName">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill" class="form-element">
+            <mat-label>Ваши контактные данные</mat-label>
+            <input matInput [(ngModel)]="feedback.contactData">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill" class="form-element">
+            <mat-label>Текст сообщения</mat-label>
+            <textarea matInput [(ngModel)]="feedback.text"></textarea>
+        </mat-form-field>
+        <br>
+        <br>
+        <button mat-raised-button color="primary" [disabled]="!isValid()" (click)="send()">Отправить</button>
+        <br>
+    </div>
+</div>

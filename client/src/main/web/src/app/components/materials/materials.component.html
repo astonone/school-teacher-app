@@ -1,0 +1,20 @@
+<button *ngIf="userService.isUserLogged()" class="create-button" mat-raised-button color="primary"
+        (click)="openCreateFolderPopup(false, null, null)">Создать папку
+</button>
+<div class="materials-container">
+    <mat-list>
+        <h3 mat-subheader>Папки</h3>
+        <mat-list-item *ngFor="let folder of folders">
+            <mat-icon mat-list-icon class="item" (click)="gotoFolder(folder.id)">folder</mat-icon>
+            <h4 class="item" (click)="gotoFolder(folder.id)" mat-line>{{folder.name}}
+            </h4>
+            <mat-icon *ngIf="userService.isUserLogged()" mat-list-icon class="remove-item"
+                      (click)="openDeleteFolderPopup(folder.id)">delete_sweep
+            </mat-icon>
+            <mat-icon *ngIf="userService.isUserLogged()" mat-list-icon class="remove-item"
+                      (click)="openCreateFolderPopup(true, folder.id, folder.name)">create
+            </mat-icon>
+        </mat-list-item>
+        <p class="create-button" *ngIf="isEmptyFolderList()">На данный момент, не создано ни одной папки</p>
+    </mat-list>
+</div>

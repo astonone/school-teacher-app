@@ -1,0 +1,22 @@
+app:
+  # teacher-sk-777
+  secret-key: $2y$10$IYTfhLwIzPuRwnRGwlYCHub5AKgHl8T9vnvEccQhpax0SIcih2.Aq
+  file:
+    storage:
+      path: ${user.home}/teacher-stor/
+
+spring:
+  data:
+    mongodb:
+      database: teacher
+      host: localhost
+      port: 27017
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+
+mongock:
+  runner-type: InitializingBean
+  change-logs-scan-package:
+    - com.kulygin.changelog

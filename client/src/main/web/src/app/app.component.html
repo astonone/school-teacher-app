@@ -1,0 +1,96 @@
+﻿<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav
+                 #drawer
+                 class="sidenav"
+                 fixedInViewport="true"
+                 (click)="toggleSidenav(sidenav)"
+                 [attr.role]="shared.isMobile() ? 'dialog' : 'navigation'"
+                 [mode]="shared.isMobile() ? 'over' : 'side'"
+                 [opened]="!shared.isMobile()">
+        <mat-toolbar color="primary">Меню</mat-toolbar>
+        <mat-nav-list class="menu">
+            <div class="user-name">
+                <span *ngIf="shared.isMobile() && userService.isUserLogged()">Вы вошли как: {{showUserInfo()}}</span>
+            </div>
+            <div>
+                <a mat-list-item routerLink="/home">Главная</a>
+                <a mat-list-item routerLink="/portfolio">Портфолио</a>
+                <a mat-list-item routerLink="/students">Ученикам</a>
+                <a mat-list-item routerLink="/parents">Родителям</a>
+                <a mat-list-item routerLink="/materials">Материалы</a>
+                <a mat-list-item routerLink="/news">Новости</a>
+                <a mat-list-item routerLink="/feedback">Обратная связь</a>
+                <a *ngIf="shared.isMobile() && userService.isUserLogged()" mat-list-item routerLink="/settings">Настройки</a>
+                <a *ngIf="shared.isMobile() && userService.isUserLogged()" mat-list-item (click)="logout()">Выход</a>
+                <mat-accordion *ngIf="shared.isMobile()">
+                    <mat-expansion-panel [expanded]="true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Темы
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <button [ngStyle]="{'background-color':shared.isSelected('deeppurple-amber') ? 'red' : '' }"
+                                mat-menu-item (click)="onSetTheme('deeppurple-amber')">deeppurple-amber
+                        </button>
+                        <button [ngStyle]="{'background-color':shared.isSelected('indigo-pink') ? 'red' : '' }" mat-menu-item
+                                (click)="onSetTheme('indigo-pink')">indigo-pink
+                        </button>
+                        <button [ngStyle]="{'background-color':shared.isSelected('pink-bluegrey') ? 'red' : '' }" mat-menu-item
+                                (click)="onSetTheme('pink-bluegrey')">pink-bluegrey
+                        </button>
+                        <button [ngStyle]="{'background-color':shared.isSelected('purple-green') ? 'red' : '' }" mat-menu-item
+                                (click)="onSetTheme('purple-green')">purple-green
+                        </button>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary" class="header-control-panel">
+            <div class="header-control-menu-panel">
+                <button
+                        (click)="drawer.toggle()"
+                        *ngIf="shared.isMobile()"
+                        aria-label="Toggle sidenav"
+                        mat-icon-button
+                        type="button">
+                    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+                </button>
+                <div *ngIf="!shared.isMobile() && userService.isUserLogged()" class="header-panel-el">Вы вошли
+                    как: {{showUserInfo()}}</div>
+                <button *ngIf="!shared.isMobile() && userService.isUserLogged()" class="header-panel-el"
+                        routerLink="/settings" mat-raised-button color="link">Настройки
+                </button>
+                <button *ngIf="!shared.isMobile() && userService.isUserLogged()" class="header-panel-el"
+                        mat-raised-button color="warn" (click)="logout()">Выход
+                </button>
+            </div>
+            <div class="header-control-label-panel">
+                <button *ngIf="(!userService.isUserLogged() || !shared.isMobile())" mat-button
+                        [matMenuTriggerFor]="menu">Панель управления
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button *ngIf="!userService.isUserLogged()" mat-menu-item (click)="openLoginPopup()">Вход</button>
+                    <button *ngIf="!shared.isMobile()" mat-menu-item [matMenuTriggerFor]="themes">Темы</button>
+                </mat-menu>
+                <mat-menu #themes="matMenu">
+                    <button [ngStyle]="{'background-color':shared.isSelected('deeppurple-amber') ? 'red' : '' }" mat-menu-item
+                            (click)="onSetTheme('deeppurple-amber')">deeppurple-amber
+                    </button>
+                    <button [ngStyle]="{'background-color':shared.isSelected('indigo-pink') ? 'red' : '' }" mat-menu-item
+                            (click)="onSetTheme('indigo-pink')">indigo-pink
+                    </button>
+                    <button [ngStyle]="{'background-color':shared.isSelected('pink-bluegrey') ? 'red' : '' }" mat-menu-item
+                            (click)="onSetTheme('pink-bluegrey')">pink-bluegrey
+                    </button>
+                    <button [ngStyle]="{'background-color':shared.isSelected('purple-green') ? 'red' : '' }" mat-menu-item
+                            (click)="onSetTheme('purple-green')">purple-green
+                    </button>
+                </mat-menu>
+                <img class="app-img" src="../assets/app-icon.png">
+            </div>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,19 @@
+﻿<button *ngIf="userService.isUserLogged()" class="news-button" (click)="createNew()" mat-raised-button color="primary">
+    Создать новость
+</button>
+<div class="news-container">
+    <mat-list>
+        <h3 mat-subheader>Новости</h3>
+        <mat-list-item *ngFor="let new of news" class="news-item">
+            <mat-icon *ngIf="!shared.isMobile()" mat-list-icon>comment</mat-icon>
+            <mat-icon *ngIf="userService.isUserLogged()" mat-list-icon class="remove-item" (click)="deleteNew(new.id)">
+                delete_sweep
+            </mat-icon>
+            <h4 mat-line class="news-title">{{new.title}}</h4>
+            <h6 mat-line class="news-text">{{new.text}}</h6>
+            <p mat-line class="news-info"> {{new.user}},{{new.created}} </p>
+        </mat-list-item>
+    </mat-list>
+    <p class="news-button" *ngIf="isEmptyNewsList()">Новостей пока нет</p>
+</div>
+

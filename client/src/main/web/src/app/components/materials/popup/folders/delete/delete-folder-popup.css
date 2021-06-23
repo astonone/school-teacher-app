@@ -1,0 +1,25 @@
+.delete-folder-popup-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.delete-folder-popup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.delete-folder-popup-buttons {
+
+}
+
+.delete-folder-popup-button {
+    margin: 10px;
+}
+
+.modal-window-text-item {
+    text-align: center;
+}

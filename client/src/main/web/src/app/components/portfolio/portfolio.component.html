@@ -1,0 +1,39 @@
+﻿<div class="portfolio">
+    <div class="portfolio__card">
+        <mat-card>
+            <mat-card-header>
+                <div mat-card-avatar></div>
+                <mat-card-title>Кулыгина Ольга Викторовна</mat-card-title>
+                <mat-card-subtitle>МБОУ Гимназия №2 г. Саров Нижегородская область</mat-card-subtitle>
+            </mat-card-header>
+            <img *ngIf="currentUser.pathToPhotoLink === null" mat-card-image class="user-image" src="./assets/image/empty-profile-black.png" alt="user-photo">
+            <div *ngIf="currentUser.pathToPhotoLink !== null">
+                <img mat-card-image [src]="currentUserImageSrc | safeHtml" alt="user-photo">
+            </div>
+            <mat-card-content>
+                <p class="portfolio-text">
+                    Учитель высшей квалификационной категории
+                </p>
+            </mat-card-content>
+            <mat-card-actions class="portfolio-text">
+                Информация об учителе:<br>
+                Закончила в 1995 году Арзамасский Государственный педагогический институт им. А. Гайдара по специальности "Математика и физика". С 1995 года работаю в сфере образования учителем математики.<br>
+                Заслуги:<br>
+                Награждена Почетной грамотой Администрации города Сарова в 2002 году.<br>
+                Награждена Почетной грамотой Управления образования в 2004 году.<br>
+                Награждена Почетной грамотой Российского профессионального союза работников атомной энергетики и промышленности в 2008 году.<br>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+
+    <div class="portfolio__content">
+        <p class="portfolio-text">
+            Статьи:<br>
+            <a href="http://letopisi.org/index.php/%D0%9A%D1%83%D0%BB%D1%8B%D0%B3%D0%B8%D0%BD%D0%B0_%D0%9E.%D0%92._%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D0%BC_%D1%80%D0%B0%D0%B7%D0%B2%D0%B8%D1%82%D0%B8%D1%8F_%D1%82%D0%B2%D0%BE%D1%80%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D1%85_%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9" target="_blank">Управление процессом развития творческих способностей</a><br>
+            Страницы на других сайтах:<br>
+            <a href="http://www.proshkolu.ru/user/kyligina55/" target="_blank">Интернет портал proshkolu.ru</a><br>
+            <a href="http://gymnasia-2.ru/pages/zadanija-pljus/kulygina-olga-viktorovna.php" target="_blank">Гимназия №2</a><br>
+        </p>
+    </div>
+</div>
+

@@ -1,0 +1,18 @@
+﻿a {
+    cursor: pointer;
+}
+
+.help-block {
+    font-size: 12px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}

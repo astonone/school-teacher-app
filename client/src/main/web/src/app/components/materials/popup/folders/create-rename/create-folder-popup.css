@@ -1,0 +1,29 @@
+.create-folder-popup-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.create-folder-popup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-folder-popup-text-input {
+    width: 95%;
+}
+
+.create-folder-popup-buttons {
+
+}
+
+.create-folder-popup-button {
+    margin: 10px;
+}
+
+.modal-window-text-item {
+    text-align: center;
+}

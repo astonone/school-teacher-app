@@ -1,0 +1,16 @@
+<button *ngIf="userService.isUserLogged()" class="upload-button" (click)="uploadFileToFolder()" mat-raised-button
+        color="primary">Загрузить файл
+</button>
+<div class="folder-container">
+    <mat-list>
+        <h3 mat-subheader>Файлы</h3>
+        <mat-list-item *ngFor="let file of files">
+            <mat-icon mat-list-icon>note</mat-icon>
+            <mat-icon *ngIf="userService.isUserLogged()" mat-list-icon class="remove-item"
+                      (click)="deleteFileFromFolder(file.id)">delete_sweep
+            </mat-icon>
+            <a mat-line (click)="onClickDownload(file)">{{file.filename}}</a>
+        </mat-list-item>
+    </mat-list>
+    <p class="upload-button" *ngIf="isEmptyFilesList()">На данный момент, не загружено ни одного файла в эту папку</p>
+</div>

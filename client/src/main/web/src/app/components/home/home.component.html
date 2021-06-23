@@ -1,0 +1,23 @@
+﻿<div class="home">
+    <div [ngClass]="{
+    'home-text-color-deeppurple-amber': shared.isSelected('deeppurple-amber'),
+     'home-text-color-indigo-pink': shared.isSelected('indigo-pink'),
+     'home-text-color-pink-bluegrey': shared.isSelected('pink-bluegrey'),
+      'home-text-color-purple-green': shared.isSelected('purple-green')}">
+        <p>Кулыгина Ольга Викторовна</p><br>
+        <p>МБОУ Гимназия №2 г. Саров Нижегородская область</p><br>
+        <img *ngIf="!shared.isMobile()" class="main-photo" src="./assets/image/home-page-photo.jpeg" alt="school-photo">
+        <img *ngIf="shared.isMobile()" mat-card-image class="main-photo main-photo-mobile" src="./assets/image/homa-page-mobile.jpeg" alt="school-photo">
+        <p>На страницах сайта Вы найдете:</p><br>
+        <ul class="home-list">
+            <li><a routerLink="/materials"><i>Материалы к урокам и внеклассным мероприятиям</i></a></li>
+            <li><a routerLink="/materials"><i>Олимпиадные и конкурсные задания</i></a></li>
+            <li><a routerLink="/students"><i>Информацию для моих учеников</i></a></li>
+            <li><a routerLink="/parents"><i>Информацию для родителей моих учеников</i></a></li>
+        </ul>
+        <br>
+        <button mat-raised-button color="primary" routerLink="/feedback">Обратная связь</button>
+        <br>
+    </div>
+</div>
+

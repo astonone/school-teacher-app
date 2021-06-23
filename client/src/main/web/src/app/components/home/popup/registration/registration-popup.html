@@ -1,0 +1,41 @@
+<h1 mat-dialog-title class="modal-window-text-item">Регистрация</h1>
+<div mat-dialog-content>
+    <div class="registration-container">
+        <h3>Заполните данные для создания аккаунта</h3>
+        <mat-form-field class="registration-text-input" appearance="outline">
+            <mat-label>Логин</mat-label>
+            <input matInput type="text" placeholder="Придумайте логин" [(ngModel)]="newUser.username">
+            <mat-hint class="text-filed-hint">Это поле обязательно к заполнению</mat-hint>
+        </mat-form-field>
+        <mat-form-field class="registration-text-input" appearance="outline">
+            <mat-label>Пароль</mat-label>
+            <input matInput type="password" placeholder="Придумайте пароль" [(ngModel)]="newUser.password">
+            <mat-hint class="text-filed-hint">Это поле обязательно к заполнению</mat-hint>
+        </mat-form-field>
+        <mat-form-field class="registration-text-input" appearance="outline">
+            <mat-label>Имя</mat-label>
+            <input matInput placeholder="Введите ваше имя" [(ngModel)]="newUser.firstName">
+            <mat-hint class="text-filed-hint">Это поле обязательно к заполнению</mat-hint>
+        </mat-form-field>
+        <mat-form-field class="registration-text-input" appearance="outline">
+            <mat-label>Фамилия</mat-label>
+            <input matInput placeholder="Введите вашу фамилию" [(ngModel)]="newUser.lastName">
+            <mat-hint class="text-filed-hint">Это поле обязательно к заполнению</mat-hint>
+        </mat-form-field>
+        <mat-form-field class="registration-text-input" appearance="outline">
+            <mat-label>Регистрационный ключ</mat-label>
+            <input matInput placeholder="Введите регистрационный ключ" [(ngModel)]="newUser.secretKey">
+            <mat-hint class="text-filed-hint">Это поле обязательно к заполнению</mat-hint>
+        </mat-form-field>
+        <div class="registration-buttons">
+            <button class="registration-button" mat-raised-button color="primary" [disabled]="!isValidInput()"
+                    (click)="createUser()">Создать
+            </button>
+            <button class="registration-button" mat-raised-button color="accent" (click)="closeRegistrationPopup()">
+                Отмена
+            </button>
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions class="modal-window-buttons">
+</div>

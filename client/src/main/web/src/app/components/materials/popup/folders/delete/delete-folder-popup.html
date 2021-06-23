@@ -1,0 +1,13 @@
+<h1 mat-dialog-title class="modal-window-text-item">Удаление папки</h1>
+<div mat-dialog-content>
+    <div class="delete-folder-popup-container">
+        <h3>Вы действительно хотите удалить папку?</h3>
+        <div class="delete-folder-popup-buttons">
+            <button class="delete-folder-popup-button" mat-raised-button color="primary" (click)="deleteFolder()">
+                Удалить
+            </button>
+            <button class="delete-folder-popup-button" mat-raised-button color="warn" (click)="closePopup()">Отмена
+            </button>
+        </div>
+    </div>
+</div>

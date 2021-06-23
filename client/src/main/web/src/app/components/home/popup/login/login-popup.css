@@ -1,0 +1,34 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-text-input {
+    width: 95%;
+}
+
+.login-buttons {
+
+}
+
+.login-button {
+    margin: 10px;
+    width: 107px;
+}
+
+.login-error-label {
+    color: red;
+}
+
+.modal-window-text-item {
+    text-align: center;
+}

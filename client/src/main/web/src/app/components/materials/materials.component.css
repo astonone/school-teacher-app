@@ -1,0 +1,30 @@
+.materials-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    height: calc(100vh - 64px);
+}
+
+.item {
+    cursor: pointer;
+}
+
+.remove-item {
+    cursor: pointer;
+}
+
+.create-button {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+@media screen and (min-width: 1000px) {
+    .materials-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        height: calc(100vh - 64px);
+    }
+}

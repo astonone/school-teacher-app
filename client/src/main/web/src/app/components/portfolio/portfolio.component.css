@@ -1,0 +1,31 @@
+.portfolio {
+}
+
+.portfolio__card {
+
+}
+
+.portfolio__content {
+
+}
+
+.portfolio-text {
+    margin: 10px;
+    text-align: center;
+    font-size: medium;
+}
+
+@media screen and (min-width: 1000px) {
+    .portfolio {
+        display: flex;
+        min-height: calc(100vh - 64px);
+    }
+
+    .portfolio__card {
+        width: 30%;
+    }
+
+    .portfolio__content {
+        width: 70%;
+    }
+}

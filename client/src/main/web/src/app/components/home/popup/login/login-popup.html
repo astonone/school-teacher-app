@@ -1,0 +1,26 @@
+<h1 mat-dialog-title class="modal-window-text-item">Авторизация</h1>
+<div mat-dialog-content>
+    <div class="login-container">
+        <h3>Пожалуйста, введите свои данные для логина</h3>
+        <mat-form-field class="login-text-input" appearance="outline">
+            <mat-label>Логин</mat-label>
+            <input matInput type="text" placeholder="Введите свой email адресс" [(ngModel)]="user.username"
+                   (keyup.enter)="login()">
+        </mat-form-field>
+        <mat-form-field class="login-text-input" appearance="outline">
+            <mat-label>Пароль</mat-label>
+            <input matInput type="password" placeholder="Введите свой пароль" [(ngModel)]="user.password"
+                   (keyup.enter)="login()">
+        </mat-form-field>
+        <mat-checkbox [(ngModel)]="isRemember">Запомнить меня</mat-checkbox>
+        <div class="login-buttons">
+            <button class="login-button" mat-raised-button color="primary" (click)="login()">Вход</button>
+            <button class="login-button" mat-raised-button color="accent" (click)="openRegistrationPopup()">
+                Регистрация
+            </button>
+            <button class="login-button" mat-raised-button color="warn" (click)="closeLoginPopup()">Закрыть</button>
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions class="modal-window-buttons">
+</div>

@@ -1,0 +1,61 @@
+.app-img {
+    height: 56px;
+}
+
+.header-buttons {
+    height: 40px;
+}
+
+.app-title {
+    padding: 10px 10px;
+    color: white;
+}
+
+.header-control-panel {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.header-control-label-panel {
+    display: flex;
+    align-items: center;
+}
+
+.header-control-menu-panel {
+    display: flex;
+    align-items: center;
+}
+
+.sidenav {
+    width: 200px;
+    box-shadow: 3px 0 6px rgba(0, 0, 0, .24);
+}
+
+.mat-sidenav-content {
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header-panel-el {
+    margin: 5px 5px 5px 5px;
+}
+
+.user-name {
+    margin: 5px 5px 5px 15px;
+}
+
+.disabled {
+    cursor: not-allowed;
+    color: gray;
+}
+
+@media screen and (min-width: 1000px) {
+    .mat-sidenav-content {
+        overflow: hidden;
+    }
+}

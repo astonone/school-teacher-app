@@ -1,0 +1,15 @@
+<h1 mat-dialog-title class="modal-window-text-item">Загрузка</h1>
+<div mat-dialog-content>
+    <div class="uploaded-container">
+        <h3 class="upload-container-item">Здесь вы можете загружать файлы</h3>
+        <label class="btn btn-default">
+            <input class="upload-container-item" type="file" name="file" (change)="selectFile($event)"/>
+        </label>
+        <button class="upload-container-item" mat-raised-button color="primary" [disabled]="!files" (click)="upload()">
+            Загрузить
+        </button>
+        <button (click)="closePopup()" mat-raised-button color="warn">Закрыть</button>
+    </div>
+</div>
+<div mat-dialog-actions class="modal-window-buttons">
+</div>
