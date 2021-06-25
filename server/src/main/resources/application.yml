@@ -1,3 +1,6 @@
+server:
+  port: 80
+
 app:
   # teacher-sk-777
   secret-key: $2y$10$IYTfhLwIzPuRwnRGwlYCHub5AKgHl8T9vnvEccQhpax0SIcih2.Aq
