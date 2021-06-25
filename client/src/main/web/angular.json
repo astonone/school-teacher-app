@@ -55,7 +55,8 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "np-app:build:production"
+              "browserTarget": "np-app:build:production",
+              "proxyConfig": "proxy.conf.prod.json"
             }
           }
         },

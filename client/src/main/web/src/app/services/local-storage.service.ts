@@ -9,7 +9,7 @@ export class LocalStorageService {
     private isProd: boolean = environment.production;
 
     private HOST_DEV = '/api';
-    private HOST_PROD = 'http://localhost:8080/api';
+    private HOST_PROD = '/api';
     private readonly SERVER_URL: string;
 
     constructor() {
