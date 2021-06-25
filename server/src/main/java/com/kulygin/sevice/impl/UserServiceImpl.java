@@ -86,9 +86,14 @@ public class UserServiceImpl implements UserService {
 
     private void validateFileFormat(String filePath) {
         final String fileExtension = getFileExtension(filePath);
-        if (!fileExtension.equalsIgnoreCase("jpg") || !fileExtension.equalsIgnoreCase("jpeg")
-                || !fileExtension.equalsIgnoreCase("png") || !fileExtension.equalsIgnoreCase("svg")) {
-            throw new InvalidPhotoFileFormatException();
+        switch (fileExtension) {
+            case "jpg":
+            case "jpeg":
+            case "png":
+            case "svg":
+                return;
+            default:
+                throw new InvalidPhotoFileFormatException();
         }
     }
 
