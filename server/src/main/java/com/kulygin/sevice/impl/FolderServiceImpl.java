@@ -73,10 +73,12 @@ public class FolderServiceImpl implements FolderService {
     public void deleteById(String folderId) {
         val folder = folderRepository.findById(folderId);
         if (folder.isPresent()) {
-            folder.get().getFiles().forEach(file -> {
-                deleteFileIfExists(file.getFilepath());
-                fileRepository.delete(file);
-            });
+            if (folder.get().getFiles() != null) {
+                folder.get().getFiles().forEach(file -> {
+                    deleteFileIfExists(file.getFilepath());
+                    fileRepository.delete(file);
+                });
+            }
             folderRepository.deleteById(folderId);
         }
     }

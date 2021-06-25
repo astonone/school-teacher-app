@@ -9,12 +9,12 @@
         <img *ngIf="!shared.isMobile()" class="main-photo" src="./assets/image/home-page-photo.jpeg" alt="school-photo">
         <img *ngIf="shared.isMobile()" mat-card-image class="main-photo main-photo-mobile" src="./assets/image/homa-page-mobile.jpeg" alt="school-photo">
         <p>На страницах сайта Вы найдете:</p><br>
-        <ul class="home-list">
-            <li><a routerLink="/materials"><i>Материалы к урокам и внеклассным мероприятиям</i></a></li>
-            <li><a routerLink="/materials"><i>Олимпиадные и конкурсные задания</i></a></li>
-            <li><a routerLink="/students"><i>Информацию для моих учеников</i></a></li>
-            <li><a routerLink="/parents"><i>Информацию для родителей моих учеников</i></a></li>
-        </ul>
+        <div>
+            <p class="home-list" routerLink="/materials">Материалы к урокам и внеклассным мероприятиям</p>
+            <p class="home-list" routerLink="/materials">Олимпиадные и конкурсные задания</p>
+            <p class="home-list" routerLink="/students">Информацию для моих учеников</p>
+            <p class="home-list" routerLink="/parents">Информацию для родителей моих учеников</p>
+        </div>
         <br>
         <button mat-raised-button color="primary" routerLink="/feedback">Обратная связь</button>
         <br>

@@ -3,7 +3,6 @@
     justify-content: flex-start;
     flex-direction: column;
     align-items: flex-start;
-    height: calc(100vh - 64px);
 }
 
 .news-button {
@@ -51,7 +50,6 @@
         justify-content: flex-start;
         align-items: flex-start;
         flex-direction: column;
-        height: calc(100vh - 64px);
     }
 
     .news-item {

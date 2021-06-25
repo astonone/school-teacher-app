@@ -1,8 +1,8 @@
 ﻿import {Component, OnInit} from '@angular/core';
 import {UserDto} from '../../dto/user-dto';
 import {UserService} from '../../services/user.service';
-import {SharedService} from "../../services/shared.service";
-import {ImageUtil} from "../../util/image.util";
+import {SharedService} from '../../services/shared.service';
+import {ImageUtil} from '../../util/image.util';
 
 @Component({
     selector: 'home',
@@ -27,7 +27,7 @@ export class PortfolioComponent implements OnInit {
     }
 
     private loadCurrentUser(): void {
-        const portfolioUserId = "1";
+        const portfolioUserId = '1';
         this.userService.getById(portfolioUserId).subscribe(data => {
             this.currentUser = data;
             if (this.currentUser.photoFile !== null && this.currentUser.photoFileExtension !== null) {
