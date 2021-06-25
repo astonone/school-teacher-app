@@ -2,8 +2,7 @@ server:
   port: 80
 
 app:
-  # teacher-sk-777
-  secret-key: $2y$10$IYTfhLwIzPuRwnRGwlYCHub5AKgHl8T9vnvEccQhpax0SIcih2.Aq
+  secret-key: $2y$10$B5mCdvQssdCOeK7Xt7r4/ex4rMDshdRaPSGqH.LW8DPgqm4bzAB8K
   file:
     storage:
       path: ${user.home}/teacher-stor/
