@@ -1,4 +1,4 @@
-import {ImageUtil} from "../util/image.util";
+import {ImageUtil} from '../util/image.util';
 
 export class UserDto {
 

@@ -22,3 +22,22 @@ mongock:
   runner-type: InitializingBean
   change-logs-scan-package:
     - com.kulygin.changelog
+
+management:
+  endpoints:
+    web:
+      base-path: /api/management
+      exposure:
+        include: [ 'configprops', 'env', 'health', 'info', 'jhimetrics', 'logfile', 'loggers', 'threaddump' ]
+  endpoint:
+    health:
+      show-details: always
+    jhimetrics:
+      enabled: true
+  metrics:
+    enable:
+      http: true
+      jvm: true
+      logback: true
+      process: true
+      system: true

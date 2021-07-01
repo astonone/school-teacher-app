@@ -13,32 +13,66 @@
                 <span *ngIf="shared.isMobile() && userService.isUserLogged()">Вы вошли как: {{showUserInfo()}}</span>
             </div>
             <div>
-                <a mat-list-item routerLink="/home">Главная</a>
-                <a mat-list-item routerLink="/portfolio">Портфолио</a>
-                <a mat-list-item routerLink="/students">Ученикам</a>
-                <a mat-list-item routerLink="/parents">Родителям</a>
-                <a mat-list-item routerLink="/materials">Материалы</a>
-                <a mat-list-item routerLink="/news">Новости</a>
-                <a mat-list-item routerLink="/feedback">Обратная связь</a>
-                <a *ngIf="shared.isMobile() && userService.isUserLogged()" mat-list-item routerLink="/settings">Настройки</a>
-                <a *ngIf="shared.isMobile() && userService.isUserLogged()" mat-list-item (click)="logout()">Выход</a>
+                <a mat-list-item routerLink="/home">
+                    <fa-icon icon="home" [fixedWidth]="true"></fa-icon>
+                    Главная</a>
+                <a mat-list-item routerLink="/portfolio">
+                    <fa-icon icon="info" [fixedWidth]="true"></fa-icon>
+                    Портфолио</a>
+                <a mat-list-item routerLink="/students">
+                    <fa-icon icon="user-graduate" [fixedWidth]="true"></fa-icon>
+                    Ученикам</a>
+                <a mat-list-item routerLink="/parents">
+                    <fa-icon icon="users" [fixedWidth]="true"></fa-icon>
+                    Родителям</a>
+                <a mat-list-item routerLink="/materials">
+                    <fa-icon icon="folder" [fixedWidth]="true"></fa-icon>
+                    Материалы</a>
+                <a mat-list-item routerLink="/news">
+                    <fa-icon icon="newspaper" [fixedWidth]="true"></fa-icon>
+                    Новости</a>
+                <a mat-list-item routerLink="/feedback">
+                    <fa-icon icon="comments" [fixedWidth]="true"></fa-icon>
+                    Обратная связь</a>
+                <a *ngIf="shared.isMobile() && userService.isUserLogged()" mat-list-item routerLink="/metrics">
+                    <fa-icon icon="tachometer-alt" [fixedWidth]="true"></fa-icon>
+                    Метрики</a>
+                <a *ngIf="shared.isMobile() && userService.isUserLogged()" mat-list-item routerLink="/health">
+                    <fa-icon icon="heart" [fixedWidth]="true"></fa-icon>
+                    Состояние</a>
+                <a *ngIf="shared.isMobile() && userService.isUserLogged()" mat-list-item routerLink="/configuration">
+                    <fa-icon icon="cogs" [fixedWidth]="true"></fa-icon>
+                    Конфигурация</a>
+                <a *ngIf="shared.isMobile() && userService.isUserLogged()" mat-list-item routerLink="/logs">
+                    <fa-icon icon="tasks" [fixedWidth]="true"></fa-icon>
+                    Логи</a>
+                <a *ngIf="shared.isMobile() && userService.isUserLogged()" mat-list-item routerLink="/settings">
+                    <fa-icon icon="id-badge"></fa-icon>
+                    Настройки</a>
+                <a *ngIf="shared.isMobile() && userService.isUserLogged()" mat-list-item (click)="logout()">
+                    <fa-icon icon="sign-out-alt" [fixedWidth]="true"></fa-icon>
+                    Выход</a>
                 <mat-accordion *ngIf="shared.isMobile()">
                     <mat-expansion-panel [expanded]="true">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
+                                <fa-icon icon="palette" [fixedWidth]="true"></fa-icon>
                                 Темы
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         <button [ngStyle]="{'background-color':shared.isSelected('deeppurple-amber') ? 'red' : '' }"
                                 mat-menu-item (click)="onSetTheme('deeppurple-amber')">deeppurple-amber
                         </button>
-                        <button [ngStyle]="{'background-color':shared.isSelected('indigo-pink') ? 'red' : '' }" mat-menu-item
+                        <button [ngStyle]="{'background-color':shared.isSelected('indigo-pink') ? 'red' : '' }"
+                                mat-menu-item
                                 (click)="onSetTheme('indigo-pink')">indigo-pink
                         </button>
-                        <button [ngStyle]="{'background-color':shared.isSelected('pink-bluegrey') ? 'red' : '' }" mat-menu-item
+                        <button [ngStyle]="{'background-color':shared.isSelected('pink-bluegrey') ? 'red' : '' }"
+                                mat-menu-item
                                 (click)="onSetTheme('pink-bluegrey')">pink-bluegrey
                         </button>
-                        <button [ngStyle]="{'background-color':shared.isSelected('purple-green') ? 'red' : '' }" mat-menu-item
+                        <button [ngStyle]="{'background-color':shared.isSelected('purple-green') ? 'red' : '' }"
+                                mat-menu-item
                                 (click)="onSetTheme('purple-green')">purple-green
                         </button>
                     </mat-expansion-panel>
@@ -60,32 +94,79 @@
                 <div *ngIf="!shared.isMobile() && userService.isUserLogged()" class="header-panel-el">Вы вошли
                     как: {{showUserInfo()}}</div>
                 <button *ngIf="!shared.isMobile() && userService.isUserLogged()" class="header-panel-el"
-                        routerLink="/settings" mat-raised-button color="link">Настройки
+                        routerLink="/settings" mat-raised-button color="link">
+                    <fa-icon icon="id-badge"></fa-icon>
+                    Настройки
                 </button>
                 <button *ngIf="!shared.isMobile() && userService.isUserLogged()" class="header-panel-el"
-                        mat-raised-button color="warn" (click)="logout()">Выход
+                        mat-raised-button color="warn" (click)="logout()">
+                    <fa-icon icon="sign-out-alt" [fixedWidth]="true"></fa-icon>
+                    Выход
                 </button>
             </div>
             <div class="header-control-label-panel">
                 <button *ngIf="(!userService.isUserLogged() || !shared.isMobile())" mat-button
-                        [matMenuTriggerFor]="menu">Панель управления
+                        [matMenuTriggerFor]="menu">
+                    <fa-icon icon="caret-square-down"></fa-icon>
+                    Панель управления
                 </button>
                 <mat-menu #menu="matMenu">
-                    <button *ngIf="!userService.isUserLogged()" mat-menu-item (click)="openLoginPopup()">Вход</button>
-                    <button *ngIf="!shared.isMobile()" mat-menu-item [matMenuTriggerFor]="themes">Темы</button>
+                    <button *ngIf="!userService.isUserLogged()" mat-menu-item (click)="openLoginPopup()">
+                        <fa-icon icon="door-open"></fa-icon>
+                        Вход
+                    </button>
+                    <button *ngIf="!shared.isMobile()" mat-menu-item [matMenuTriggerFor]="themes">
+                        <fa-icon icon="palette"></fa-icon>
+                        Темы
+                    </button>
+                    <button *ngIf="!shared.isMobile() && userService.isUserLogged()" mat-menu-item
+                            [matMenuTriggerFor]="management">
+                        <fa-icon icon="users-cog"></fa-icon>
+                        Администрирование
+                    </button>
                 </mat-menu>
                 <mat-menu #themes="matMenu">
-                    <button [ngStyle]="{'background-color':shared.isSelected('deeppurple-amber') ? 'red' : '' }" mat-menu-item
-                            (click)="onSetTheme('deeppurple-amber')">deeppurple-amber
+                    <button [ngStyle]="{'background-color':shared.isSelected('deeppurple-amber') ? 'red' : '' }"
+                            mat-menu-item
+                            (click)="onSetTheme('deeppurple-amber')">
+                        <fa-icon icon="palette"></fa-icon>
+                        deeppurple-amber
                     </button>
-                    <button [ngStyle]="{'background-color':shared.isSelected('indigo-pink') ? 'red' : '' }" mat-menu-item
-                            (click)="onSetTheme('indigo-pink')">indigo-pink
+                    <button [ngStyle]="{'background-color':shared.isSelected('indigo-pink') ? 'red' : '' }"
+                            mat-menu-item
+                            (click)="onSetTheme('indigo-pink')">
+                        <fa-icon icon="palette"></fa-icon>
+                        indigo-pink
                     </button>
-                    <button [ngStyle]="{'background-color':shared.isSelected('pink-bluegrey') ? 'red' : '' }" mat-menu-item
-                            (click)="onSetTheme('pink-bluegrey')">pink-bluegrey
+                    <button [ngStyle]="{'background-color':shared.isSelected('pink-bluegrey') ? 'red' : '' }"
+                            mat-menu-item
+                            (click)="onSetTheme('pink-bluegrey')">
+                        <fa-icon icon="palette"></fa-icon>
+                        pink-bluegrey
                     </button>
-                    <button [ngStyle]="{'background-color':shared.isSelected('purple-green') ? 'red' : '' }" mat-menu-item
-                            (click)="onSetTheme('purple-green')">purple-green
+                    <button [ngStyle]="{'background-color':shared.isSelected('purple-green') ? 'red' : '' }"
+                            mat-menu-item
+                            (click)="onSetTheme('purple-green')">
+                        <fa-icon icon="palette"></fa-icon>
+                        purple-green
+                    </button>
+                </mat-menu>
+                <mat-menu #management="matMenu">
+                    <button mat-menu-item routerLink="/metrics">
+                        <fa-icon icon="tachometer-alt" [fixedWidth]="true"></fa-icon>
+                        Метрики
+                    </button>
+                    <button mat-menu-item routerLink="/health">
+                        <fa-icon icon="heart" [fixedWidth]="true"></fa-icon>
+                        Состояние
+                    </button>
+                    <button mat-menu-item routerLink="/configuration">
+                        <fa-icon icon="cogs" [fixedWidth]="true"></fa-icon>
+                        Конфигурация
+                    </button>
+                    <button mat-menu-item routerLink="/logs">
+                        <fa-icon icon="tasks" [fixedWidth]="true"></fa-icon>
+                        Логи
                     </button>
                 </mat-menu>
                 <img class="app-img" src="../assets/app-icon.png">

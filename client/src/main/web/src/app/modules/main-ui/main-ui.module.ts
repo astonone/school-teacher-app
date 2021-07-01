@@ -22,6 +22,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {NgbProgressbarModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
         MatExpansionModule,
         ReactiveFormsModule,
         MatTableModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        NgbProgressbarModule
     ],
     declarations: [],
     providers: [
@@ -75,7 +77,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
         MatExpansionModule,
         ReactiveFormsModule,
         MatTableModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        NgbProgressbarModule
     ]
 })
 export class MainUiModule {
