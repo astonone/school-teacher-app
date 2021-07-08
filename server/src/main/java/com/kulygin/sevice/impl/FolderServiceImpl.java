@@ -16,6 +16,8 @@ import com.kulygin.sevice.StorageService;
 import com.kulygin.sevice.impl.util.MappingService;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -43,6 +45,7 @@ public class FolderServiceImpl implements FolderService {
     }
 
     @Override
+    @Cacheable(value = "folders")
     public FolderDto getById(String folderId) {
         return folderRepository.findById(folderId)
                 .map(folder -> mappingService.map(folder, FolderDto.class))
@@ -50,11 +53,13 @@ public class FolderServiceImpl implements FolderService {
     }
 
     @Override
+    @Cacheable("folder-list")
     public List<FolderWithoutFilesDto> getAll() {
         return mappingService.mapAsList(folderRepository.findAll(), FolderWithoutFilesDto.class);
     }
 
     @Override
+    @CacheEvict(value="folder-list", allEntries=true)
     public FolderDto save(FolderWithoutFilesDto folderDto) {
         Folder forSave = Folder.builder().build();
         Optional<Folder> folderById = Optional.empty();
@@ -70,6 +75,7 @@ public class FolderServiceImpl implements FolderService {
     }
 
     @Override
+    @CacheEvict(value="folder-list", allEntries=true)
     public void deleteById(String folderId) {
         val folder = folderRepository.findById(folderId);
         if (folder.isPresent()) {
@@ -84,6 +90,7 @@ public class FolderServiceImpl implements FolderService {
     }
 
     @Override
+    @CacheEvict(value="folders", allEntries=true)
     public FolderDto addFileToFolder(FolderWithoutFilesDto folder, FileDto file, MultipartFile uploadedFile) throws FileWritingException {
         var existedFolder = folderRepository.findById(folder.getId());
         if (existedFolder.isEmpty()) {
@@ -114,6 +121,7 @@ public class FolderServiceImpl implements FolderService {
     }
 
     @Override
+    @CacheEvict(value="folders", allEntries=true)
     public FolderDto deleteFileFromFolder(FolderWithoutFilesDto folder, String fileId) {
         var existedFolder = folderRepository.findById(folder.getId());
         if (existedFolder.isEmpty()) {

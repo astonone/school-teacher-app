@@ -8,6 +8,8 @@ import com.kulygin.sevice.StorageService;
 import com.kulygin.sevice.UserService;
 import com.kulygin.sevice.impl.util.MappingService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -41,6 +43,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @CacheEvict(value="users", allEntries=true)
     public UserDto save(UserDto userDto, MultipartFile uploadedFile) throws FileWritingException {
         Optional<User> userById = userDto.getId() != null ? userRepository.findById(userDto.getId()) : Optional.empty();
         if (isAllowedUpdate(userDto, userById)) {
@@ -115,11 +118,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Cacheable("users")
     public UserDto getById(String id) {
         return userRepository.findById(id).map(user -> mappingService.map(user, UserDto.class)).orElseThrow(UserDoesNotExistException::new);
     }
 
     @Override
+    @CacheEvict(value="users", allEntries=true)
     public void deleteById(String id) {
         if (!userRepository.existsById(id)) {
             throw new UserDoesNotExistException();

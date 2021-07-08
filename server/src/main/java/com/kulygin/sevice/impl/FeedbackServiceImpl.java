@@ -6,6 +6,8 @@ import com.kulygin.repository.FeedbackRepository;
 import com.kulygin.sevice.FeedbackService;
 import com.kulygin.sevice.impl.util.MappingService;
 import lombok.AllArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,11 +20,13 @@ public class FeedbackServiceImpl implements FeedbackService {
     private final MappingService mappingService;
 
     @Override
+    @Cacheable("feedbacks")
     public List<FeedbackDto> getAll() {
         return mappingService.mapAsList(feedbackRepository.findAll(), FeedbackDto.class);
     }
 
     @Override
+    @CacheEvict(value="feedbacks", allEntries=true)
     public FeedbackDto create(FeedbackDto feedbackDto) {
         return mappingService.map(feedbackRepository.save(Feedback.builder()
                 .userName(feedbackDto.getUserName())
@@ -32,6 +36,7 @@ public class FeedbackServiceImpl implements FeedbackService {
     }
 
     @Override
+    @CacheEvict(value="feedbacks", allEntries=true)
     public void deleteById(String id) {
         if (feedbackRepository.existsById(id)) {
             feedbackRepository.deleteById(id);
